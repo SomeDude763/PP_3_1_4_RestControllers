@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${user.id == 0 ? 'Add' : 'Edit'}">Edit page</title>
+</head>
+<body>
+
+<form th:action="@{${user.id == 0 ? '/users/add' : '/users/edit'}}" method="post" th:object="${user}">
+
+    <input type="hidden" th:if="${user.id != 0}" th:field="*{id}" />
+
+    <label>Имя</label>
+    <input type="text" th:field="*{name}" />
+    <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+
+    <label>Фамилия</label>
+    <input type="text" th:field="*{surname}" />
+    <p th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></p>
+
+    <label>Возраст</label>
+    <input type="number" th:field="*{age}" />
+    <p th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></p>
+
+    <input type="submit" th:value="${user.id == 0 ? 'Добавить нового пользователя' : 'Изменить пользователя'}" />
+</form>
+
+<a th:href="@{/users}">Вернуться в список пользователей</a>
+
+</body>
+</html>
