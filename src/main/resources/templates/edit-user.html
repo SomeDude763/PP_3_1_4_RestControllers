@@ -10,10 +10,10 @@
 <form th:action="@{/admin/edit}" th:object="${user}" method="post">
     <input type="hidden" th:field="*{id}" />
     <label>Username:</label>
-    <input type="text" th:field="*{username}" required/>
+    <input type="text" th:field="*{username}"/>
     <br>
     <label>Password:</label>
-    <input type="text" th:field="*{password}" required/>
+    <input type="password" th:field="*{password}"/>
     <br>
     <label>Roles:</label>
     <div th:each="role : ${roleList}">

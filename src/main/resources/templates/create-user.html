@@ -12,7 +12,7 @@
     <input type="text" th:field="*{username}" required/>
     <br>
     <label>Password:</label>
-    <input type="text" th:field="*{password}" required/>
+    <input type="password" th:field="*{password}" required/>
     <br>
     <label>Roles:</label>
     <div th:each="role : ${roleList}">

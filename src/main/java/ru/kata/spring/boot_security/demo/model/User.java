@@ -22,7 +22,7 @@ public class User implements UserDetails {
     @NotBlank(message = "username не должен быть пустым, заправься борщом густым")
     @Size(min = 2, max = 50, message = "тут такое дело... " +
             "username должен состоять как минимум из 2 и как максимум из 50 символов")
-    @Pattern(regexp = "^[a-zA-Zа-яА-Я]+$", message = "выйди и зайди заново, используя только буквы")
+    @Pattern(regexp = "^[a-zA-Zа-яА-Я0-9]+$", message = "выйди и зайди заново, используя только буквы")
     private String username;
     @Column(name = "password")
     private String password;
