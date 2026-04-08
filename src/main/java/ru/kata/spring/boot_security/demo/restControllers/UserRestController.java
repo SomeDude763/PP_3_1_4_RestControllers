@@ -1,4 +1,4 @@
-package ru.kata.spring.boot_security.demo.configs.restControllers;
+package ru.kata.spring.boot_security.demo.restControllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

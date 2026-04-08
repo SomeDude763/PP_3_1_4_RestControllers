@@ -1,4 +1,4 @@
-package ru.kata.spring.boot_security.demo.configs.restControllers;
+package ru.kata.spring.boot_security.demo.restControllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -50,7 +50,7 @@ public class AdminRestController {
                 .toList();
     }
 
-    @PostMapping("/admin")
+    @PostMapping("/admin/new")
     public ResponseEntity<HttpStatus> createUser(@RequestBody @Valid UserDTO userDTO,
                                                  BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {

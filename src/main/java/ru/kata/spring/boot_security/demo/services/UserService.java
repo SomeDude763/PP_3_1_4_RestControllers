@@ -74,6 +74,7 @@ public class UserService {
                 .map(Role::getRole)
                 .collect(Collectors.toSet());
         UserDTO userDTO = new UserDTO();
+        userDTO.setId(user.getId());
         userDTO.setUsername(user.getUsername());
         userDTO.setRoles(roleNames);
         return userDTO;
