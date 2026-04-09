@@ -67,25 +67,17 @@ public class AdminRestController {
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
-    @PutMapping("/admin/{id}")
-    public ResponseEntity<HttpStatus> editUser(@RequestBody  @Valid UserDTO userDTO,@PathVariable int id,
-                                               BindingResult bindingResult) {
-        if(bindingResult.hasErrors()) {
-            StringBuilder errorMessage = new StringBuilder();
-            List<FieldError> errors = bindingResult.getFieldErrors();
-            for (FieldError error : errors) {
-                errorMessage.append((error.getField()))
-                        .append(" - ").append(error.getDefaultMessage())
-                        .append(";");
-            }
-            throw new UserNotValidException(errorMessage.toString());
+    @PutMapping("/admin/edit")
+    public ResponseEntity<HttpStatus> editUser(@RequestBody @Valid UserDTO userDTO) {
+        if (userDTO.getId() == 0) {
+            throw new UserNotValidException("Id пользователя не указан");
         }
-        userService.update(id,userService.convertToUser(userDTO));
+        userService.update(userDTO.getId(), userService.convertToUser(userDTO));
         return ResponseEntity.ok(HttpStatus.OK);
     }
 
     @DeleteMapping("/admin/{id}")
-    public ResponseEntity<HttpStatus> deleteUser(@RequestBody @PathVariable int id) {
+    public ResponseEntity<HttpStatus> deleteUser(@PathVariable int id) {
         userService.delete(id);
         return ResponseEntity.ok(HttpStatus.OK);
     }

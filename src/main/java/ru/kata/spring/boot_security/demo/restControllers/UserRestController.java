@@ -26,6 +26,6 @@ public class UserRestController {
     @GetMapping("/user")
     public UserDTO getUser(Principal principal) {
         User user = userService.findByUsername(principal.getName());
-       return userService.convertToDTO(user);
+        return userService.convertToDTO(user);
     }
 }
