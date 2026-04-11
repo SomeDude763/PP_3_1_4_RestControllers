@@ -20,7 +20,6 @@ public class UserController {
         this.userService = userService;
     }
 
-
     @GetMapping
     public String userInfo(Principal principal, Model model) {
         String username = principal.getName();
@@ -29,3 +28,4 @@ public class UserController {
         return "user";
     }
 }
+
